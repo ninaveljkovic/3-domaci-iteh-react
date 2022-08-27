@@ -5,12 +5,12 @@ function Frizure({frizure,kriterijum,dodaj}) {
     <div className="row">
         {kriterijum==""
         ?
-        frizure.map((f)=> <div className="col-sm-3"><Kartica dodaj={dodaj} key={f.id} f={f} mod={1}></Kartica><br /></div>)
+        frizure.map((f)=> <div  key={f.id} className="col-sm-3"><Kartica dodaj={dodaj} key={f.id} f={f} mod={1}></Kartica><br /></div>)
         :
         <>
         {frizure
         .filter((f)=>f.naziv.toLowerCase().includes(kriterijum.toLowerCase()))
-        .map((f)=> <div className="col-sm-3"><Kartica dodaj={dodaj}  key={f.id} f={f} mod={1}></Kartica><br /></div>)}
+        .map((f)=> <div  key={f.id} className="col-sm-3"><Kartica dodaj={dodaj}  key={f.id} f={f} mod={1}></Kartica><br /></div>)}
 
         </>
         }

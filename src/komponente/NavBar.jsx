@@ -4,12 +4,12 @@ function NavBar({pretrazi}) {
   return (
     <div>
         <nav className="nav">
-            <div className="nav__title">LOREM</div>
+            <div className="nav__title">SREDI ME</div>
                 <ul className="nav__list">
                  
-                    <li className="nav__item">   <Link to='/'>Pocetna</Link></li>
-                    <li className="nav__item"> <Link to='/frizure'>Frizure</Link></li>
-                    <li className="nav__item"> <Link to='/omiljene'>Omiljene</Link></li>
+                    <li className="nav__item">   <Link className="link" to='/'>Pocetna</Link></li>
+                    <li className="nav__item"> <Link  className="link" to='/frizure'>Frizure</Link></li>
+                    <li className="nav__item"> <Link   className="link" to='/omiljene'>Omiljene</Link></li>
 
                     <li className="nav__item"> 
                     
