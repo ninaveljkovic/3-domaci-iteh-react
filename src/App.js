@@ -117,6 +117,15 @@ function dodaj(id){
   var niz = sveFrizure.filter((f)=>f.omiljena==1);
   setOmiljeneF(niz);
 }
+function izbaci(id){
+  for(var i=0;i<sveFrizure.length;i++){
+    if(sveFrizure[i].id==id){
+      sveFrizure[i].omiljena=0;
+    }
+  }
+  var niz = sveFrizure.filter((f)=>f.omiljena==1);
+  setOmiljeneF(niz);
+}
 
 
 
@@ -127,7 +136,7 @@ function dodaj(id){
           <Routes>
             <Route path="/" element={<Pocetna></Pocetna>}></Route>
             <Route path="/frizure" element={<Frizure kriterijum={krterijumPretrage}  frizure={sveFrizure} dodaj={dodaj}></Frizure>}></Route>
-            <Route path="/omiljene" element={<Omiljene kriterijum={krterijumPretrage}  frizure={omiljeneF}></Omiljene>}></Route>
+            <Route path="/omiljene" element={<Omiljene kriterijum={krterijumPretrage}  frizure={omiljeneF} izbaci={izbaci}></Omiljene>}></Route>
 
           </Routes>
           <Footer></Footer>

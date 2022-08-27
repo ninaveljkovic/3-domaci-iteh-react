@@ -1,4 +1,4 @@
-function Kartica({f,dodaj}) {
+function Kartica({f,dodaj,mod,izbaci}) {
 
 
     return (
@@ -7,7 +7,12 @@ function Kartica({f,dodaj}) {
         <div className="card-body">
           <h5 className="card-title">{f.naziv}</h5>
           <p className="card-text">{f.opis} <br /> Cena: {f.cena}</p>
-          <button className="btn btn-primary" onClick={()=>dodaj(f.id)}>Dodaj u omiljene</button>
+          {mod==1 ?
+            <button className="btn btn-primary" onClick={()=>dodaj(f.id)}>Dodaj u omiljene</button>
+            :
+            <button className="btn btn-danger" onClick={()=>izbaci(f.id)}>Izbaci iz omiljenih</button>
+
+          }
         </div>
       </div>
     );
