@@ -6,10 +6,11 @@ import Pocetna from './komponente/Pocetna';
 import Frizure from './komponente/Frizure';
 import Footer from './komponente/Footer';
 import { useState } from 'react';
+import Omiljene from './komponente/Omiljene';
 
 function App() {
 
-
+  const [omiljeneF,setOmiljeneF]=useState([]);
   const[sveFrizure] = useState([
 
     {
@@ -20,6 +21,7 @@ function App() {
         vreme: 25,
         cena: 1599,
         adresa:  "Prvomajska 75",
+        omiljena:0
         
          
     },
@@ -31,7 +33,7 @@ function App() {
       vreme: 45,
       cena: 3500,
       adresa:  "Prvomajska 75",
-    
+      omiljena:0
 
     },      
     {
@@ -42,7 +44,7 @@ function App() {
         vreme: 45,
         cena: 5000,
         adresa:  "Prvomajska 75",
-        
+        omiljena:0
 
     },
     {
@@ -53,7 +55,7 @@ function App() {
       vreme: 45,
       cena: 1000,
       adresa:  "Prvomajska 75",
-     
+      omiljena:0
     },
     {
       id:5,
@@ -63,7 +65,7 @@ function App() {
       vreme: 45,
       cena: 5000,
       adresa:  "Prvomajska 75",
-     
+      omiljena:0
 
     }, 
     {
@@ -74,7 +76,7 @@ function App() {
       vreme: 45,
       cena: 5000,
       adresa:  "Prvomajska 75",
-    
+      omiljena:0
 
     },
     {
@@ -85,7 +87,7 @@ function App() {
       vreme: 45,
       cena: 3500,
       adresa:  "Prvomajska 75",
-     
+      omiljena:0
     },  
     {
       id:8,
@@ -95,7 +97,7 @@ function App() {
       vreme: 45,
       cena: 3500,
       adresa:  "Prvomajska 75",
-     
+      omiljena:0
 
     },
 
@@ -106,7 +108,15 @@ function App() {
     setKriterijumPretrage(kriterijum);
   }
 
-
+function dodaj(id){
+  for(var i=0;i<sveFrizure.length;i++){
+    if(sveFrizure[i].id==id){
+      sveFrizure[i].omiljena=1;
+    }
+  }
+  var niz = sveFrizure.filter((f)=>f.omiljena==1);
+  setOmiljeneF(niz);
+}
 
 
 
@@ -116,7 +126,8 @@ function App() {
           <NavBar pretrazi={pretrazi}></NavBar>
           <Routes>
             <Route path="/" element={<Pocetna></Pocetna>}></Route>
-            <Route path="/frizure" element={<Frizure kriterijum={krterijumPretrage}  frizure={sveFrizure}></Frizure>}></Route>
+            <Route path="/frizure" element={<Frizure kriterijum={krterijumPretrage}  frizure={sveFrizure} dodaj={dodaj}></Frizure>}></Route>
+            <Route path="/omiljene" element={<Omiljene kriterijum={krterijumPretrage}  frizure={omiljeneF}></Omiljene>}></Route>
 
           </Routes>
           <Footer></Footer>

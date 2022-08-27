@@ -9,6 +9,8 @@ function NavBar({pretrazi}) {
                  
                     <li className="nav__item">   <Link to='/'>Pocetna</Link></li>
                     <li className="nav__item"> <Link to='/frizure'>Frizure</Link></li>
+                    <li className="nav__item"> <Link to='/omiljene'>Omiljene</Link></li>
+
                     <li className="nav__item"> 
                     
                         <input type="text" id="kriterijum" placeholder="Search.." name="search"  onChange={()=>pretrazi(document.getElementById('kriterijum').value)}/>
