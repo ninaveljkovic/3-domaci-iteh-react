@@ -100,9 +100,11 @@ function App() {
     },
 
   ]);
+  const [krterijumPretrage,setKriterijumPretrage]=useState("");
 
-
-
+  function pretrazi(kriterijum){
+    setKriterijumPretrage(kriterijum);
+  }
 
 
 
@@ -111,10 +113,10 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-          <NavBar></NavBar>
+          <NavBar pretrazi={pretrazi}></NavBar>
           <Routes>
             <Route path="/" element={<Pocetna></Pocetna>}></Route>
-            <Route path="/frizure" element={<Frizure  frizure={sveFrizure}></Frizure>}></Route>
+            <Route path="/frizure" element={<Frizure kriterijum={krterijumPretrage}  frizure={sveFrizure}></Frizure>}></Route>
 
           </Routes>
           <Footer></Footer>
